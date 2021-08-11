@@ -6,8 +6,45 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#ffffff</color>
+
+
+    <color name="green">#22E67B</color>
+    <color name="orange">#F88909</color>
+    <color name="red">#FD0225</color>
+
+    <color name="light_grey">#8A92AD</color>
+    <color name="white">#ffffff</color>
+
+
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="yellow">#FFEB3B</color>
+
+    <color name="severe_thinness">#04B4B3</color>
+
+    <!-- -->
+    <color name="moderate_thinness">#10CAC9</color>
+
+    <!---->
+    <color name="mild_thinness">#F5A623</color>
+
+    <!---->
+    <color name="normal">#FF7D50</color>
+
+    <!---->
+    <color name="overweight">#FC6644</color>
+
+    <!-- -->
+    <color name="magnitude7">#E75F40</color>
+
+    <color name="Obese_class_1">#E13A20</color>
+
+    <!-- -->
+    <color name="Obese_class_2">#D93218</color>
+
+
+    <color name="Obese_class_3">#C03823</color>
 </resources>

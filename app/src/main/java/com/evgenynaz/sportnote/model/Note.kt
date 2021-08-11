@@ -9,12 +9,16 @@ import androidx.room.PrimaryKey
 
 
 @Entity
-class Note : Parcelable {
+open class Note : Parcelable {
     @PrimaryKey(autoGenerate = true)
     var uid = 0
 
     @ColumnInfo(name = "text")
     var text: String? = null
+
+    @ColumnInfo(name = "date")
+    var date: String? = null
+
 
     @ColumnInfo(name = "timestamp")
     var timestamp: Long = 0
@@ -42,7 +46,7 @@ class Note : Parcelable {
         return result
     }
 
-    protected constructor(`in`: Parcel) {
+    constructor(`in`: Parcel) {
         uid = `in`.readInt()
         text = `in`.readString()
         timestamp = `in`.readLong()
@@ -61,7 +65,8 @@ class Note : Parcelable {
     }
 
     companion object {
-        @JvmField val CREATOR: Creator<Note?> = object : Creator<Note?> {
+        @JvmField
+        val CREATOR: Creator<Note?> = object : Creator<Note?> {
             override fun createFromParcel(`in`: Parcel): Note? {
                 return Note(`in`)
             }

@@ -4,6 +4,13 @@ import android.app.Application
 import androidx.room.Room
 import com.evgenynaz.sportnote.data.AppDatabase
 import com.evgenynaz.sportnote.data.NoteDao
+import com.example.schoolorgonizer.weather.WeatherViewModel
+import com.example.schoolorgonizer.weather.restApi.ApiRepository
+import com.example.schoolorgonizer.weather.restApi.WeatherApi
+import org.koin.android.ext.koin.androidContext
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
 
 
 class App : Application() {
@@ -12,6 +19,11 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        startKoin {
+            androidContext(this@App)
+            modules(listOf(viewModels, repository, api))
+        }
+
         instance = this
         val also = Room.databaseBuilder(
             applicationContext,
@@ -21,10 +33,27 @@ class App : Application() {
             .allowMainThreadQueries()
             .build().also { database = it }
         noteDao = database!!.noteDao()
+
+    }
+
+
+    private val viewModels = module {
+        viewModel { WeatherViewModel(get()) }
+        // viewModel { NoteFragmentViewModel(get()) }
+    }
+    private val repository = module {
+        factory { ApiRepository(get()) }
+        //    factory { NoteRepository(get()) }
+    }
+
+    private val api = module {
+        single { WeatherApi.get() }
+
     }
 
     companion object {
         var instance: App? = null
             private set
+
     }
 }

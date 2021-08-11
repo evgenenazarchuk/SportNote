@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
     private var recyclerView: RecyclerView? = null
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-       /* super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)*/
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -27,12 +25,12 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         recyclerView = findViewById(R.id.list)
         val linearLayoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
-        val with = with(recyclerView) {
+        with(recyclerView) {
             this?.setLayoutManager(linearLayoutManager)
         }
         recyclerView?.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         val adapter = Adapter()
-        with(recyclerView) {
+        val with = with(recyclerView) {
             this?.setAdapter(adapter)
         }
         val fab = findViewById<FloatingActionButton>(R.id.fab)

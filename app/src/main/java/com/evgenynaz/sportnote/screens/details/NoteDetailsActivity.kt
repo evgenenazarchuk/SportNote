@@ -14,8 +14,9 @@ import com.evgenynaz.sportnote.App
 import com.evgenynaz.sportnote.databinding.ActivityNoteDetailsBinding
 
 
+
 class NoteDetailsActivity : AppCompatActivity() {
-   // private val EXTRA_NOTE = "NoteDetailsActivity.EXTRA_NOTE"
+    // private val EXTRA_NOTE = "NoteDetailsActivity.EXTRA_NOTE"
     private lateinit var binding: ActivityNoteDetailsBinding
     private var note: Note? = null
     private var editText: EditText? = null
