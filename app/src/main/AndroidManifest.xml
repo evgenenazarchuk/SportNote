@@ -18,7 +18,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"/>
         <activity
-            android:name=".map.MapsActivity"
+            android:name=".main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.SportNote.NoActionBar">
             <intent-filter>

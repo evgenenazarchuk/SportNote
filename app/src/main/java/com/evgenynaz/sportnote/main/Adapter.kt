@@ -1,4 +1,4 @@
-package com.evgenynaz.sportnote.screens.main
+package com.evgenynaz.sportnote.main
 
 import android.app.Activity
 import android.graphics.Paint

@@ -1,6 +1,5 @@
-package com.evgenynaz.sportnote.screens.main
+package com.evgenynaz.sportnote.main
 
-import com.evgenynaz.sportnote.R
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -8,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.evgenynaz.sportnote.R
 import com.evgenynaz.sportnote.databinding.ActivityMainBinding
 import com.evgenynaz.sportnote.model.Note
 import com.evgenynaz.sportnote.screens.details.NoteDetailsActivity

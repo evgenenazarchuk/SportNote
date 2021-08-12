@@ -1,13 +1,9 @@
-package com.evgenynaz.sportnote.screens.main
+package com.evgenynaz.sportnote.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.evgenynaz.sportnote.App
 import com.evgenynaz.sportnote.model.Note
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import okhttp3.internal.Internal.instance
 
 
 class MainViewModel : ViewModel() {
