@@ -3,8 +3,8 @@ package com.evgenynaz.sportnote.weather
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.schoolorgonizer.weather.data.WeatherResult
-import com.example.schoolorgonizer.weather.restApi.ApiRepository
+import com.evgenynaz.sportnote.weather.data.WeatherResult
+import com.evgenynaz.sportnote.weather.restApi.ApiRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
