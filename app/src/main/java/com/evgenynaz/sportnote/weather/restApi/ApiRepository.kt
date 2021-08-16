@@ -1,6 +1,7 @@
-package com.example.schoolorgonizer.weather.restApi
+package com.evgenynaz.sportnote.weather.restApi
 
-import com.example.schoolorgonizer.weather.data.WeatherResult
+import com.evgenynaz.sportnote.weather.data.WeatherResult
+
 
 class ApiRepository(
     private val weatherApi: WeatherApi

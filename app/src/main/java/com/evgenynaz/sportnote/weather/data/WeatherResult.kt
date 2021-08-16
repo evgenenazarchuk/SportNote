@@ -1,5 +1,4 @@
-package com.example.schoolorgonizer.weather.data
-
+package com.evgenynaz.sportnote.weather.data
 data class WeatherResult(
     val description: String,
     val name: String,

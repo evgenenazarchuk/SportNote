@@ -1,9 +1,8 @@
-package com.example.schoolorgonizer.weather.restApi
-
-import com.example.schoolorgonizer.weather.entities.WeatherResponse
-import com.example.schoolorgonizer.weather.restApi.ApiRepository.Companion.CITY
-import com.example.schoolorgonizer.weather.restApi.ApiRepository.Companion.LANG
-import com.example.schoolorgonizer.weather.restApi.ApiRepository.Companion.UNITS
+package com.evgenynaz.sportnote.weather.restApi
+import com.evgenynaz.sportnote.weather.entities.WeatherResponse
+import com.evgenynaz.sportnote.weather.restApi.ApiRepository.Companion.CITY
+import com.evgenynaz.sportnote.weather.restApi.ApiRepository.Companion.LANG
+import com.evgenynaz.sportnote.weather.restApi.ApiRepository.Companion.UNITS
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

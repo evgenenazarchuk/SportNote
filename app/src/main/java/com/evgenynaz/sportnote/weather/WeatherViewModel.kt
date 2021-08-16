@@ -1,4 +1,4 @@
-package com.example.schoolorgonizer.weather
+package com.evgenynaz.sportnote.weather
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

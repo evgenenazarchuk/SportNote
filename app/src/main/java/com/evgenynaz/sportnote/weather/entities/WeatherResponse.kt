@@ -1,4 +1,4 @@
-package com.example.schoolorgonizer.weather.entities
+package com.evgenynaz.sportnote.weather.entities
 
 import com.google.gson.annotations.SerializedName
 
