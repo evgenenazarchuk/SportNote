@@ -12,6 +12,7 @@
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+
     <EditText
         android:id="@+id/text"
         android:layout_width="match_parent"

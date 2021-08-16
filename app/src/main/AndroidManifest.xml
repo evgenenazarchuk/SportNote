@@ -9,7 +9,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".App"
+        android:name=".note.App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SportNote">
@@ -18,7 +18,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"/>
         <activity
-            android:name=".main.MainActivity"
+            android:name=".note.screens.main.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.SportNote.NoActionBar">
             <intent-filter>
@@ -27,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".screens.details.NoteDetailsActivity"
+        <activity android:name="com.evgenynaz.sportnote.note.screens.details.NoteDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="com.evgenynaz.myhomework.alarm.AlarmActivity"/>
         <service
@@ -36,5 +36,4 @@
             android:exported="true"></service>
         <receiver android:name="com.evgenynaz.myhomework.alarm.NotificationBroadcast" />
     </application>
-
 </manifest>

@@ -1,4 +1,4 @@
-package com.evgenynaz.sportnote.screens.details
+package com.evgenynaz.sportnote.note.screens.details
 
 import com.evgenynaz.sportnote.R
 import android.app.Activity
@@ -9,8 +9,8 @@ import android.view.MenuItem
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.evgenynaz.sportnote.model.Note
-import com.evgenynaz.sportnote.App
+import com.evgenynaz.sportnote.note.model.Note
+import com.evgenynaz.sportnote.note.App
 import com.evgenynaz.sportnote.databinding.ActivityNoteDetailsBinding
 
 
@@ -24,8 +24,6 @@ class NoteDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNoteDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        /*super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_note_details)*/
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)

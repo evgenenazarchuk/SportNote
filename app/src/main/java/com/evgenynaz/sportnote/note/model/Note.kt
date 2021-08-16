@@ -1,4 +1,4 @@
-package com.evgenynaz.sportnote.model
+package com.evgenynaz.sportnote.note.model
 
 import android.os.Parcel
 import android.os.Parcelable

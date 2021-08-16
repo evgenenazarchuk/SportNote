@@ -1,8 +1,8 @@
-package com.evgenynaz.sportnote.data
+package com.evgenynaz.sportnote.note.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.evgenynaz.sportnote.model.Note
+import com.evgenynaz.sportnote.note.model.Note
 
 
 @Dao

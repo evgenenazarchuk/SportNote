@@ -2,7 +2,7 @@ package com.evgenynaz.sportnote.map
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.IntentSender.SendIntentException
+import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
@@ -21,7 +21,9 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.Task
 
 
+
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
+
 
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
@@ -54,6 +56,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 myLocation = LatLng(p0.lastLocation.latitude, p0.lastLocation.longitude)
             }
         }
+
 
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -96,6 +99,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding.mapView.onDestroy()
     }
 
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -105,6 +109,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
         mMap.uiSettings.isZoomControlsEnabled = true
@@ -186,7 +191,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             if (e is ResolvableApiException) {
                 try {
                     e.startResolutionForResult(this, 500)
-                } catch (sendEx: SendIntentException) {
+                } catch (sendEx: IntentSender.SendIntentException) {
                 }
             }
         }
@@ -202,3 +207,4 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
     }
 }
+

@@ -1,9 +1,9 @@
-package com.evgenynaz.sportnote
+package com.evgenynaz.sportnote.note
 
 import android.app.Application
 import androidx.room.Room
-import com.evgenynaz.sportnote.data.AppDatabase
-import com.evgenynaz.sportnote.data.NoteDao
+import com.evgenynaz.sportnote.note.data.AppDatabase
+import com.evgenynaz.sportnote.note.data.NoteDao
 import com.example.schoolorgonizer.weather.WeatherViewModel
 import com.example.schoolorgonizer.weather.restApi.ApiRepository
 import com.example.schoolorgonizer.weather.restApi.WeatherApi
