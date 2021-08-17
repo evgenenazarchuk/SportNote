@@ -1,4 +1,4 @@
-package com.evgenynaz.sportnote.bmi
+package com.evgenynaz.sportnote.bmi.database
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

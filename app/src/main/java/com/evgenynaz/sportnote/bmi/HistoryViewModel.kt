@@ -1,11 +1,13 @@
 package com.evgenynaz.sportnote.bmi
 import androidx.lifecycle.*
 import com.evgenynaz.myhomework.homework16.BMI
+import com.evgenynaz.sportnote.bmi.database.BmiEntity
+import com.evgenynaz.sportnote.bmi.database.BmiRepository
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
-class BMIViewModel(
+class HistoryViewModel(
     private val bmiRepository: BmiRepository
 ) : ViewModel() {
 

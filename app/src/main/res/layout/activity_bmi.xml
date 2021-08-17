@@ -137,6 +137,17 @@
             android:textColor="@color/white"
             android:textSize="18sp" />
 
+        <Button
+            android:id="@+id/histiry_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="35dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="ПОКАЗАТЬ ИСТОРИЮ BMI"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
     </LinearLayout>
 
 </RelativeLayout>

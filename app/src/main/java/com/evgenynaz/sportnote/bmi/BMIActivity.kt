@@ -1,5 +1,6 @@
 package com.evgenynaz.sportnote.bmi
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -29,6 +30,11 @@ class BMIActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        binding.histiryBtn.setOnClickListener{
+                val intent3 = Intent(this, HistoryActivity::class.java)
+                startActivity(intent3)
+            }
+
         binding.calculateUnitsBtn.setOnClickListener {
             if (validateMetricUnits()) {
                 val heightValue: Float =
@@ -42,8 +48,9 @@ class BMIActivity : AppCompatActivity() {
                     .show()
             }
         }
-
+        display_bmi_result_ll.visibility = View.GONE
     }
+
 
     private fun displayBMIResult(bmi: Float) {
         val bmiLabel: String
@@ -79,6 +86,7 @@ class BMIActivity : AppCompatActivity() {
             bmiDescription = "Вы в очень опасном состоянии!"
         }
 
+        display_bmi_result_ll.visibility = View.VISIBLE
         binding.displayBmiResultLl.visibility = View.VISIBLE
         binding.yourBmiTv.visibility = View.VISIBLE
         binding.bmiResultTv.visibility = View.VISIBLE

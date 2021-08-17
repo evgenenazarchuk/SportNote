@@ -4,9 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.evgenynaz.sportnote.databinding.ActivityStartBinding
-
-import com.example.schoolorgonizer.weather.WeatherViewModel
-import com.example.schoolorgonizer.weather.data.WeatherResult
+import com.evgenynaz.sportnote.weather.WeatherViewModel
+import com.evgenynaz.sportnote.weather.data.WeatherResult
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ActivityStart: AppCompatActivity()  {

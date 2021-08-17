@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.room.Room
 import com.evgenynaz.sportnote.note.data.AppDatabase
 import com.evgenynaz.sportnote.note.data.NoteDao
-import com.example.schoolorgonizer.weather.WeatherViewModel
-import com.example.schoolorgonizer.weather.restApi.ApiRepository
-import com.example.schoolorgonizer.weather.restApi.WeatherApi
+import com.evgenynaz.sportnote.weather.WeatherViewModel
+import com.evgenynaz.sportnote.weather.restApi.ApiRepository
+import com.evgenynaz.sportnote.weather.restApi.WeatherApi
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin

@@ -14,16 +14,7 @@ class HistoryActivity:AppCompatActivity() {
         binding = ActivityHistoryBmiBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(toolbar_history_activity)
-        val actionBar = supportActionBar
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true)//set back button
-        }
 
-
-        toolbar_history_activity.setNavigationOnClickListener {
-            onBackPressed()
-        }
 
 
     }

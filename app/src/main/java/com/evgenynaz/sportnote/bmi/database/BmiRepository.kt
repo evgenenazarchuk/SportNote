@@ -1,4 +1,4 @@
-package com.evgenynaz.sportnote.bmi
+package com.evgenynaz.sportnote.bmi.database
 
 import com.evgenynaz.myhomework.homework16.BMI
 import kotlinx.coroutines.flow.Flow

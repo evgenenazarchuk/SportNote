@@ -9,9 +9,9 @@ import com.evgenynaz.myhomework.homework16.BMI
 import com.evgenynaz.sportnote.databinding.ItemHistoryRowBinding
 
 
-class BMIAdapter(
+class HistoryAdapter(
     private val clickListener: (BMI) -> Unit
-) : ListAdapter<BMI, BMIAdapter.BmiViewHolder>(DiffUtilItemCallback()) {
+) : ListAdapter<BMI, HistoryAdapter.BmiViewHolder>(DiffUtilItemCallback()) {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BmiViewHolder =
