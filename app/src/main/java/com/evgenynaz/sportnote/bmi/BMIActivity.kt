@@ -5,12 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
-import com.evgenynaz.sportnote.R
 import com.evgenynaz.sportnote.databinding.ActivityBmiBinding
 import kotlinx.android.synthetic.main.activity_bmi.*
 import kotlinx.android.synthetic.main.activity_bmi.toolbar_bmi_activity
-import kotlinx.android.synthetic.main.activity_note_details.*
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -31,9 +28,16 @@ class BMIActivity : AppCompatActivity() {
         }
 
         binding.histiryBtn.setOnClickListener{
-                val intent3 = Intent(this, HistoryActivity::class.java)
-                startActivity(intent3)
+            val intent3 = Intent(this, HistoryActivity::class.java).apply {
+                putExtra("NAME", binding.bmiResultTv.text)
             }
+            startActivity(intent3)
+
+
+            metric_unit_weight_et.text!!.clear()
+            metric_unit_height_et.text!!.clear()
+            display_bmi_result_ll.visibility = View.GONE
+        }
 
         binding.calculateUnitsBtn.setOnClickListener {
             if (validateMetricUnits()) {
@@ -47,6 +51,7 @@ class BMIActivity : AppCompatActivity() {
                 Toast.makeText(this, "Пожалуйста введите корректные данные", Toast.LENGTH_SHORT)
                     .show()
             }
+
         }
         display_bmi_result_ll.visibility = View.GONE
     }
@@ -68,11 +73,8 @@ class BMIActivity : AppCompatActivity() {
         } else if (bmi.compareTo(18.5f) > 0 && bmi.compareTo(25f) <= 0) {
             bmiLabel = "Нормальный"
             bmiDescription = "Поздравляю! Вы в хорошей форме!"
-        } else if (java.lang.Float.compare(bmi, 25f) > 0 && java.lang.Float.compare(
-                bmi,
-                30f
-            ) <= 0
-        ) {
+        } else if (java.lang.Float.compare(bmi, 25f) > 0 && java.lang.Float.compare(bmi, 30f) <= 0)
+        {
             bmiLabel = "Избыточный вес"
             bmiDescription = "Ой! Вам действительно нужно позаботиться о себе! Может быть, тренировка!"
         } else if (bmi.compareTo(30f) > 0 && bmi.compareTo(35f) <= 0) {

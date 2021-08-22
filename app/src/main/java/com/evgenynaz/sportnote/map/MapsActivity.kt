@@ -5,11 +5,15 @@ import android.annotation.SuppressLint
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.SyncStateContract.Helpers.update
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.evgenynaz.sportnote.databinding.ActivityMapsBinding
+import com.evgenynaz.sportnote.weather.WeatherViewModel
+import com.evgenynaz.sportnote.weather.data.WeatherResult
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.CameraUpdateFactory
@@ -19,12 +23,12 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.tasks.Task
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
-
+    private val viewModel: WeatherViewModel by viewModel()
     private lateinit var mMap: GoogleMap
     private lateinit var binding: ActivityMapsBinding
 
@@ -47,10 +51,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding.mapView.onCreate(savedInstanceState)
         binding.mapView.getMapAsync(this)
 
-        binding.goToMinsk.setOnClickListener {
+
+        binding.btnMap.setOnClickListener {
             goToMe()
         }
-
         locationCallback = object : LocationCallback() {
             override fun onLocationResult(p0: LocationResult) {
                 myLocation = LatLng(p0.lastLocation.latitude, p0.lastLocation.longitude)
@@ -73,6 +77,16 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         } else {
             locationWizardry()
         }
+
+        //wether
+        viewModel.liveData.observe(this, {
+            update(it)
+        })
+        binding.wetherLl.setOnClickListener{
+            viewModel.getResultWeather()
+        }
+
+
     }
 
     override fun onRequestPermissionsResult(
@@ -99,16 +113,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         binding.mapView.onDestroy()
     }
 
-
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
@@ -205,6 +209,23 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         locationRequest.interval = 10000 //time in ms; every ~10 seconds
         locationRequest.fastestInterval = 5000
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+    }
+    private fun update(resultWeather: WeatherResult) {
+
+        binding.tvCity.text = resultWeather?.name
+        binding.tvTemp.text = "${resultWeather?.temp?.toInt()} °C"
+            //    binding.tvCloud.text = resultWeather?.description
+            ?.replace("[", "")
+            ?.replace("]", "")
+        val url = "https://openweathermap.org/img/wn/${resultWeather?.iconId}@2x.png"
+            .replace("[", "")
+            .replace("]", "")
+
+        Glide
+            .with(binding.root)
+            .load(url)
+            //.placeholder(R.drawable.img)
+            .into(binding.iconWeather)
     }
 }
 

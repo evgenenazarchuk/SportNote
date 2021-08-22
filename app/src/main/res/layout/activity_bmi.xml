@@ -16,21 +16,13 @@
         app:title="Калькулятор BMI"
         app:titleTextColor="@color/white" />
 
-    <RadioGroup
-        android:id="@+id/units_rg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar_bmi_activity"
-        android:layout_margin="10dp"
-        android:background="@drawable/radio_group_tab_background"
-        android:orientation="horizontal" />
-
     <LinearLayout
         android:id="@+id/units_view_ll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/units_rg"
+        android:layout_below="@id/toolbar_bmi_activity"
         android:orientation="vertical"
+        android:background="@color/colorWhite"
         android:padding="10dp">
 
         <LinearLayout
@@ -50,8 +42,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Вес (в kg)"
-                    android:inputType="numberDecimal"
                     android:outlineSpotShadowColor="@color/colorAccent"
+                    android:inputType="numberDecimal"
                     android:textSize="16sp" />
 
             </com.google.android.material.textfield.TextInputLayout>

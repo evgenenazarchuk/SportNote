@@ -1,29 +1,40 @@
-package com.evgenynaz.myhomework.alarm
+package com.evgenynaz.sportnote.alarm
 
 import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.evgenynaz.sportnote.databinding.AlarmActivityHomework18Binding
+import com.evgenynaz.sportnote.databinding.AlarmActivityFinishBinding
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
+import kotlinx.android.synthetic.main.activity_bmi.*
+import kotlinx.android.synthetic.main.activity_bmi.toolbar_bmi_activity
+import kotlinx.android.synthetic.main.alarm_activity_finish.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-
-class Homework18Activity : AppCompatActivity() {
-    private lateinit var binding: AlarmActivityHomework18Binding
+class AlarmActivityFinish : AppCompatActivity() {
+    private lateinit var binding: AlarmActivityFinishBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = AlarmActivityHomework18Binding.inflate(layoutInflater)
+        binding = AlarmActivityFinishBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
         val calendar = Calendar.getInstance()
-        binding.alarmButton.setOnClickListener {
+
+        setSupportActionBar(toolbar_alarm_activity)
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        }
+        // вернуться назад
+        binding.toolbarAlarmActivity.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
+        binding.startAlarm.setOnClickListener {
             val materialTimePicker: MaterialTimePicker = MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_24H)
 
@@ -80,7 +91,7 @@ class Homework18Activity : AppCompatActivity() {
     }
 
     private fun getAlarmInfoPendingIntent(): PendingIntent? {
-        val alarmInfoIntent = Intent(this, Homework18Activity::class.java)
+        val alarmInfoIntent = Intent(this, AlarmActivityFinish::class.java)
         alarmInfoIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
         return PendingIntent.getActivity(
             this,

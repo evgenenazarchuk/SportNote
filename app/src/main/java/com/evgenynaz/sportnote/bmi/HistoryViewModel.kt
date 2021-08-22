@@ -1,6 +1,5 @@
 package com.evgenynaz.sportnote.bmi
 import androidx.lifecycle.*
-import com.evgenynaz.myhomework.homework16.BMI
 import com.evgenynaz.sportnote.bmi.database.BmiEntity
 import com.evgenynaz.sportnote.bmi.database.BmiRepository
 import kotlinx.coroutines.launch
@@ -34,10 +33,11 @@ class HistoryViewModel(
     }
 }
 
-//class HomeWork15ViewModelFactory(
-//    private val messageRepository: MessageRepository
-//) : ViewModelProvider.Factory {
-//    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-//        return HomeWork15ViewModel(messageRepository) as T
-//    }
-//}
+class HistoryViewModelFactory(
+    private val messageRepository: BmiRepository
+) : ViewModelProvider.Factory {
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        return HistoryViewModel(messageRepository) as T
+    }
+}
+

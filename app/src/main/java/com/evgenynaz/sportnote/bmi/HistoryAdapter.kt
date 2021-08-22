@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.evgenynaz.myhomework.homework16.BMI
 import com.evgenynaz.sportnote.databinding.ItemHistoryRowBinding
+import java.lang.reflect.Array.get
 
 
 class HistoryAdapter(
@@ -25,11 +25,12 @@ class HistoryAdapter(
 
     class BmiViewHolder(
         private val bindingView: ItemHistoryRowBinding,
-        private val clickListener: (BMI) -> Unit
+        private val clickListener: (BMI) -> Unit,
     ) :
         RecyclerView.ViewHolder(bindingView.root) {
 
         fun bind(item: BMI) {
+            bindingView.positionTv.text = (position + 1).toString()
             bindingView.bmiTv.text = item.calories
             bindingView.dateItemTv.text = item.date
 
@@ -41,13 +42,14 @@ class HistoryAdapter(
     }
 
 }
-class DiffUtilItemCallback: DiffUtil.ItemCallback<BMI>(){
+
+class DiffUtilItemCallback : DiffUtil.ItemCallback<BMI>() {
     override fun areItemsTheSame(oldItem: BMI, newItem: BMI): Boolean {
-        return  oldItem == newItem
+        return oldItem == newItem
     }
 
     override fun areContentsTheSame(oldItem: BMI, newItem: BMI): Boolean {
-        return  oldItem.date == newItem.date && oldItem.calories == newItem.calories
+        return oldItem.date == newItem.date && oldItem.calories == newItem.calories
     }
 
 

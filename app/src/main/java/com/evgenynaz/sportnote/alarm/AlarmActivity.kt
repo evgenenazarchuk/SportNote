@@ -1,4 +1,4 @@
-package com.evgenynaz.myhomework.alarm
+package com.evgenynaz.sportnote.alarm
 
 import android.media.Ringtone;
 import android.media.RingtoneManager;

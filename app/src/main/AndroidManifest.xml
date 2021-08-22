@@ -12,13 +12,13 @@
         android:name=".note.App"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SportNote">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"/>
         <activity
-            android:name=".bmi.BMIActivity"
+            android:name=".ActivityStart"
             android:label="@string/app_name"
             android:theme="@style/Theme.SportNote.NoActionBar">
             <intent-filter>
@@ -29,12 +29,18 @@
         </activity>
         <activity android:name="com.evgenynaz.sportnote.note.screens.details.NoteDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.evgenynaz.myhomework.alarm.AlarmActivity"/>
-        <activity android:name="com.evgenynaz.sportnote.bmi.HistoryActivity"/>
+        <activity android:name="com.evgenynaz.sportnote.alarm.AlarmActivityFinish"
+            android:theme="@style/Theme.SportNote.NoActionBar"/>
+        <activity android:name="com.evgenynaz.sportnote.bmi.HistoryActivity"
+            android:theme="@style/Theme.SportNote.NoActionBar"/>
+        <activity android:name="com.evgenynaz.sportnote.bmi.BMIActivity"
+        android:theme="@style/Theme.SportNote.NoActionBar"/>
+        <activity android:name="com.evgenynaz.sportnote.map.MapsActivity"/>
+        <activity android:name="com.evgenynaz.sportnote.note.screens.main.MainActivity"/>
         <service
-            android:name="com.evgenynaz.myhomework.alarm.AnotherService"
+            android:name="com.evgenynaz.sportnote.alarm.AnotherService"
             android:enabled="true"
             android:exported="true"></service>
-        <receiver android:name="com.evgenynaz.myhomework.alarm.NotificationBroadcast" />
+        <receiver android:name="com.evgenynaz.sportnote.alarm.NotificationBroadcast" />
     </application>
 </manifest>

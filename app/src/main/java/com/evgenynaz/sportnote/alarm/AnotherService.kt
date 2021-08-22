@@ -1,4 +1,4 @@
-package com.evgenynaz.myhomework.alarm
+package com.evgenynaz.sportnote.alarm
 
 import android.app.Service
 import android.content.Intent

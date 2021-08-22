@@ -12,7 +12,7 @@ import androidx.appcompat.widget.Toolbar
 import com.evgenynaz.sportnote.note.model.Note
 import com.evgenynaz.sportnote.note.App
 import com.evgenynaz.sportnote.databinding.ActivityNoteDetailsBinding
-
+import kotlinx.android.synthetic.main.activity_note_details.*
 
 
 class NoteDetailsActivity : AppCompatActivity() {
@@ -24,10 +24,17 @@ class NoteDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityNoteDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+
         setSupportActionBar(toolbar)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setHomeButtonEnabled(true)
+        val actionBar = supportActionBar
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true)
+        }
+        // вернуться назад
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+
         title = getString(R.string.note_details_title)
         editText = findViewById(R.id.text)
         if (intent.hasExtra(EXTRA_NOTE)) {

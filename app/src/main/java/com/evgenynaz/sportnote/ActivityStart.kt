@@ -1,51 +1,42 @@
 package com.evgenynaz.sportnote
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
+import com.evgenynaz.sportnote.alarm.AlarmActivity
+import com.evgenynaz.sportnote.alarm.AlarmActivityFinish
+import com.evgenynaz.sportnote.bmi.BMIActivity
 import com.evgenynaz.sportnote.databinding.ActivityStartBinding
+import com.evgenynaz.sportnote.map.MapsActivity
+import com.evgenynaz.sportnote.note.screens.main.MainActivity
 import com.evgenynaz.sportnote.weather.WeatherViewModel
 import com.evgenynaz.sportnote.weather.data.WeatherResult
+import kotlinx.android.synthetic.main.activity_start.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ActivityStart: AppCompatActivity()  {
+class ActivityStart : AppCompatActivity() {
     private lateinit var binding: ActivityStartBinding
     private val viewModel: WeatherViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-        binding = ActivityStartBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        viewModel.liveData.observe(this, {
-            // Погода
-            update(it)
-        })
-        binding.lWeather.setOnClickListener{
-            viewModel.getResultWeather()
+        setContentView(R.layout.activity_start)
+        bmi_ll.setOnClickListener {
+            val intent = Intent(this, BMIActivity::class.java)
+            startActivity(intent)
         }
-
-    }
-
-
-    private fun update(resultWeather: WeatherResult) {
-
-        binding.tvCity.text = resultWeather?.name
-        binding.tvTemp.text = "${resultWeather?.temp?.toInt()} °C"
-    //    binding.tvCloud.text = resultWeather?.description
-            ?.replace("[", "")
-            ?.replace("]", "")
-        val url = "https://openweathermap.org/img/wn/${resultWeather?.iconId}@2x.png"
-            .replace("[", "")
-            .replace("]", "")
-
-        Glide
-            .with(binding.root)
-            .load(url)
-            .placeholder(R.drawable.img)
-            .into(binding.iconWeather)
+        note.setOnClickListener {
+            val intent1 = Intent(this, MainActivity::class.java)
+            startActivity(intent1)
+        }
+        maps.setOnClickListener {
+            val intent2 = Intent(this, MapsActivity::class.java)
+            startActivity(intent2)
+        }
+        alarm_im.setOnClickListener {
+            val intent3 = Intent(this, AlarmActivityFinish::class.java)
+            startActivity(intent3)
+        }
     }
 }
 

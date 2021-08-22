@@ -1,4 +1,4 @@
-package com.evgenynaz.myhomework.homework16
+package com.evgenynaz.sportnote.bmi
 
 data class BMI(val calories: String, val date: String) {
 }
