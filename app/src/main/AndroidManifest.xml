@@ -18,7 +18,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"/>
         <activity
-            android:name=".ActivityStart"
+            android:name=".SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.SportNote.NoActionBar">
             <intent-filter>
@@ -27,6 +27,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActivityStart"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="com.evgenynaz.sportnote.note.screens.details.NoteDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="com.evgenynaz.sportnote.alarm.AlarmActivityFinish"
