@@ -1,24 +1,21 @@
 package com.evgenynaz.sportnote.bmi
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.evgenynaz.sportnote.databinding.ActivityHistoryBmiBinding
-import com.evgenynaz.sportnote.note.App
-import kotlinx.android.synthetic.main.activity_bmi.*
 import kotlinx.android.synthetic.main.activity_history_bmi.*
-
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HistoryActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityHistoryBmiBinding
-    private val viewModels: HistoryViewModel by viewModels {
+    /*private val viewModels: HistoryViewModel by viewModels {
         HistoryViewModelFactory((application as App).messageRepository)
-    }
-
+    }*/
+    private val viewModels:HistoryViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

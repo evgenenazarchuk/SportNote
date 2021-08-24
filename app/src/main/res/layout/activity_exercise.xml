@@ -126,19 +126,6 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/circular_color_border">
 
-            <ProgressBar
-                android:id="@+id/exercise_progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:background="@drawable/circular_progress_gray"
-                android:indeterminate="false"
-                android:max="30"
-                android:progress="100"
-                android:progressDrawable="@drawable/circular_progress_bar"
-                android:rotation="-90" />
-
             <LinearLayout
                 android:layout_width="60dp"
                 android:layout_height="60dp"

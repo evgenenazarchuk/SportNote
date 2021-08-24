@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView.*
 import androidx.recyclerview.widget.SortedList
-import com.evgenynaz.sportnote.note.App
+import com.evgenynaz.sportnote.App
 import com.evgenynaz.sportnote.R
 
 

@@ -79,13 +79,6 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private fun setupRestView(){
 
-        try{
-            player = MediaPlayer.create(applicationContext, R.raw.press_start)
-            player!!.isLooping = false
-            player!!.start()
-        }catch (e : Exception){
-            e.printStackTrace()
-        }
 
         rest_view_ll.visibility = View.VISIBLE
         exercise_view_ll.visibility = View.GONE
@@ -101,12 +94,10 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     // exercise
     private fun setExerciseProgressBar(){
-        exercise_progressBar.progress = exerciseProgress
         exerciseTimer = object : CountDownTimer(exerciseTime*1000, 1000){
 
             override fun onTick(millisUntilFinished: Long) {
                 exerciseProgress++
-                exercise_progressBar.progress = exerciseTime.toInt() - exerciseProgress
                 exercise_timer_tv.text = (exerciseTime - exerciseProgress).toString()
             }
 
@@ -146,13 +137,14 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     override fun onInit(status: Int) {
         if(status == TextToSpeech.SUCCESS){ // check if there is a tts on this mobile
 
-          val result = tts!!.setLanguage(Locale.US)
+        //  val result = tts!!.setLanguage(Locale.US)
+            val result = tts!!.setLanguage(Locale.getDefault())
             // check if the language is installed
             if(result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED){
-                Log.e("TTS", "The language specified in not supported!")
+                Log.e("TTS", "Язык не установлен на телефоне")
             }
         }else{ //error or stopped
-            Log.e("TTS", "Initialization Failed!")
+            Log.e("TTS", "Ошибка инициализации")
         }
     }
 

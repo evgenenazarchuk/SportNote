@@ -10,7 +10,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.evgenynaz.sportnote.note.model.Note
-import com.evgenynaz.sportnote.note.App
+import com.evgenynaz.sportnote.App
 import com.evgenynaz.sportnote.databinding.ActivityNoteDetailsBinding
 import kotlinx.android.synthetic.main.activity_note_details.*
 

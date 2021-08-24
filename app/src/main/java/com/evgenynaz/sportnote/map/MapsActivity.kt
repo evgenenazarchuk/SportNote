@@ -37,10 +37,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationRequest: LocationRequest
 
     private var myLocation: LatLng? = null
-        set(value) {
-            field = value
-            Toast.makeText(this, "My location was updated", Toast.LENGTH_SHORT).show()
-        }
+  //      set(value) {
+    //        field = value
+    //        Toast.makeText(this, "My location was updated", Toast.LENGTH_SHORT).show()
+   //     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,27 +54,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding.btnMap.setOnClickListener {
             goToMe()
-        }
-        locationCallback = object : LocationCallback() {
-            override fun onLocationResult(p0: LocationResult) {
-                myLocation = LatLng(p0.lastLocation.latitude, p0.lastLocation.longitude)
+
+       locationCallback = object : LocationCallback() {
+         override fun onLocationResult(p0: LocationResult) {
+               myLocation = LatLng(p0.lastLocation.latitude, p0.lastLocation.longitude)
             }
         }
-
-
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                this, arrayOf(
-                    Manifest.permission.ACCESS_COARSE_LOCATION,
-                    Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_NETWORK_STATE
-                ), 2
-            )
-        } else {
             locationWizardry()
         }
 
@@ -186,20 +171,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         //now for receiving constant location updates:
         createLocRequest()
-        val builder = LocationSettingsRequest.Builder()
-            .addLocationRequest(locationRequest)
-
-        val client = LocationServices.getSettingsClient(this)
-        val task: Task<LocationSettingsResponse> = client.checkLocationSettings(builder.build())
-        task.addOnFailureListener { e ->
-            if (e is ResolvableApiException) {
-                try {
-                    e.startResolutionForResult(this, 500)
-                } catch (sendEx: IntentSender.SendIntentException) {
-                }
-            }
-        }
-
         fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, null)
         //actually start listening for updates: See on Resume(). It's done there so that conveniently we can stop listening in onPause
     }

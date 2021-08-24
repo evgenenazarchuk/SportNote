@@ -2,7 +2,7 @@ package com.evgenynaz.sportnote.note.screens.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.evgenynaz.sportnote.note.App
+import com.evgenynaz.sportnote.App
 import com.evgenynaz.sportnote.note.model.Note
 
 

@@ -33,11 +33,11 @@ class HistoryViewModel(
     }
 }
 
-class HistoryViewModelFactory(
+/*class HistoryViewModelFactory(
     private val messageRepository: BmiRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return HistoryViewModel(messageRepository) as T
     }
-}
+}*/
 
