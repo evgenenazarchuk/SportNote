@@ -29,7 +29,7 @@
         </activity>
         <activity android:name=".ActivityStart"
             android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.evgenynaz.sportnote.note.screens.details.NoteDetailsActivity"
+        <activity android:name="com.evgenynaz.sportnote.note.ActivityNote"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="com.evgenynaz.sportnote.alarm.AlarmActivityFinish"
             android:theme="@style/Theme.SportNote.NoActionBar"/>
@@ -38,7 +38,7 @@
         <activity android:name="com.evgenynaz.sportnote.bmi.BMIActivity"
         android:theme="@style/Theme.SportNote.NoActionBar"/>
         <activity android:name="com.evgenynaz.sportnote.map.MapsActivity"/>
-        <activity android:name="com.evgenynaz.sportnote.note.screens.main.MainActivity"/>
+        <activity android:name="com.evgenynaz.sportnote.note.AddEditNoteActivity"/>
         <service
             android:name="com.evgenynaz.sportnote.alarm.AnotherService"
             android:enabled="true"

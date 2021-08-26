@@ -12,7 +12,7 @@ import retrofit2.http.Query
 
 interface WeatherApi {
 
-    @GET("data/2.5/weather?appid=75338e8fd7f3af6af7d6befa30af8edd")          //BuildConfig.API_KEY2
+    @GET("data/2.5/weather?appid=75338e8fd7f3af6af7d6befa30af8edd")
     suspend fun getWeather(
         @Query("q") nameCity: String = CITY,
         @Query("lang") lang: String = LANG,

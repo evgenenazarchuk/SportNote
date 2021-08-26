@@ -6,8 +6,6 @@ import com.evgenynaz.sportnote.bmi.HistoryViewModel
 import com.evgenynaz.sportnote.bmi.database.BmiDatabase
 import com.evgenynaz.sportnote.bmi.database.BmiRepository
 import com.evgenynaz.sportnote.bmi.database.DatabaseConstructor
-import com.evgenynaz.sportnote.note.data.AppDatabase
-import com.evgenynaz.sportnote.note.data.NoteDao
 import com.evgenynaz.sportnote.weather.WeatherViewModel
 import com.evgenynaz.sportnote.weather.restApi.ApiRepository
 import com.evgenynaz.sportnote.weather.restApi.WeatherApi
@@ -29,8 +27,8 @@ class App : Application(), KoinComponent {
 
     val messageRepository: BmiRepository by lazy { BmiRepository(messageDao) }*/
 
-    var database: AppDatabase? = null
-    var noteDao: NoteDao? = null
+   /* var database: AppDatabase? = null
+    var noteDao: NoteDao? = null*/
 
     override fun onCreate() {
         super.onCreate()
@@ -39,7 +37,7 @@ class App : Application(), KoinComponent {
             modules(listOf(viewModels, repository, api,storageModule))
         }
 
-        instance = this
+      /*  instance = this
         val also = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java,
@@ -47,7 +45,7 @@ class App : Application(), KoinComponent {
         )
             .allowMainThreadQueries()
             .build().also { database = it }
-        noteDao = database!!.noteDao()
+        noteDao = database!!.noteDao()*/
 
     }
 
@@ -72,9 +70,9 @@ class App : Application(), KoinComponent {
         factory { get<BmiDatabase>().BmiDao() } //предоставляем доступ для конкретной Dao (в нашем случае NotesDao)
     }
 
-    companion object {
+    /*companion object {
         var instance: App? = null
             private set
 
-    }
+    }*/
 }

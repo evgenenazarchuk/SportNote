@@ -3,14 +3,12 @@ package com.evgenynaz.sportnote
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.evgenynaz.sportnote.alarm.AlarmActivity
 import com.evgenynaz.sportnote.alarm.AlarmActivityFinish
 import com.evgenynaz.sportnote.bmi.BMIActivity
 import com.evgenynaz.sportnote.databinding.ActivityStartBinding
 import com.evgenynaz.sportnote.map.MapsActivity
-import com.evgenynaz.sportnote.note.screens.main.MainActivity
+import com.evgenynaz.sportnote.note.ActivityNote
 import com.evgenynaz.sportnote.weather.WeatherViewModel
-import com.evgenynaz.sportnote.weather.data.WeatherResult
 import kotlinx.android.synthetic.main.activity_start.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,7 +24,7 @@ class ActivityStart : AppCompatActivity() {
             startActivity(intent)
         }
         note.setOnClickListener {
-            val intent1 = Intent(this, MainActivity::class.java)
+            val intent1 = Intent(this, ActivityNote::class.java)
             startActivity(intent1)
         }
         maps.setOnClickListener {
